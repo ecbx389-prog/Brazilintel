@@ -5,6 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content="Brazil Intel provides decision-grade intelligence, enhanced due diligence and strategic risk analysis for organizations investing, operating or entering Brazil." />
   <title>Brazil Intel — Intelligence & Risk Advisory</title>
+  <meta name="theme-color" content="#0d1115" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Brazil Intel" />
+  <meta property="og:title" content="Brazil Intel — Intelligence & Risk Advisory" />
+  <meta property="og:description" content="Decision-grade intelligence, enhanced due diligence and strategic risk analysis for organizations investing, operating or entering Brazil." />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Brazil Intel — Intelligence & Risk Advisory" />
+  <meta name="twitter:description" content="Decision-grade intelligence, enhanced due diligence and strategic risk analysis for organizations investing, operating or entering Brazil." />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   <style>
     :root{
       --bg:#0d1115;--surface:#12181d;--surface-2:#182027;--text:#f3f5f6;--muted:#9eaab2;
@@ -130,11 +139,11 @@
   <section id="request" class="cta">
     <div class="wrap cta-grid">
       <div><div class="eyebrow">Intelligence request</div><h2>What decision are you trying to make?</h2><p class="copy">Describe the decision, transaction, market entry or risk you need to understand. Requirements are reviewed for scope, conflicts and analytical feasibility before an engagement is proposed.</p></div>
-      <form class="form" onsubmit="event.preventDefault();document.getElementById('status').textContent='Prototype only — connect this form to the intake backend before production.';">
+      <form class="form" onsubmit="event.preventDefault();this.reset();document.getElementById('status').textContent='Secure intake is being activated. Please return shortly.';">
         <label for="decision">Decision</label><textarea id="decision" placeholder="Describe the decision you are facing..." required></textarea>
         <label for="type">Type of requirement</label><select id="type"><option>Enhanced Due Diligence</option><option>Corporate Intelligence</option><option>Market Entry</option><option>Geopolitical Risk</option><option>Security Intelligence</option><option>Strategic OSINT</option><option>Other</option></select>
         <label for="email">Professional email</label><input id="email" type="email" placeholder="name@company.com" required />
-        <button class="btn primary" type="submit">Submit Intelligence Requirement</button><div id="status" class="fine"></div><div class="fine">Digital asset settlement may be available for approved engagements.</div>
+        <button class="btn primary" type="submit">Submit Intelligence Requirement</button><div id="status" class="fine" role="status"></div><div class="fine">Digital asset settlement may be available for approved engagements.</div>
       </form>
     </div>
   </section>

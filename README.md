@@ -59,4 +59,20 @@ Digital asset settlement may be available for approved engagements. Client ident
 
 ## Website
 
-The initial static website is implemented in `index.html` and is designed for direct deployment through GitHub Pages, Cloudflare Pages or another static hosting service.
+The static website is implemented in `index.html` and is designed for direct deployment through GitHub Pages, Cloudflare Pages or another static hosting service. No build step is required — it is plain HTML/CSS with a small inline script for the intake form.
+
+Supporting production files:
+
+- `favicon.svg` — brand mark favicon
+- `robots.txt` — allows crawling; a `Sitemap:` line will be added once a public URL exists
+- `_headers` — baseline security headers for Cloudflare Pages (`nosniff`, frame denial, referrer policy, restrictive permissions policy)
+
+`sitemap.xml`, the `canonical` link and the Open Graph `og:url` tag are intentionally not yet present — they require a real, deployed URL and will be added after the first successful deployment rather than pointing at an invented domain.
+
+## Intake form
+
+The "Submit a Requirement" form has no backend yet. Submitting it clears the fields client-side and shows: "Secure intake is being activated. Please return shortly." No form data is sent to any service or stored anywhere. Do not wire this form to a third-party form service (e.g. Formspree) without explicit authorization.
+
+## Deployment status
+
+Not yet deployed as of this writing. This repository does not have authenticated access to a Cloudflare account or API token in this environment, so no Cloudflare Pages project could be created or connected. See the project's deployment notes (provided separately by the assistant that prepared this repo) for the exact manual steps required in the Cloudflare dashboard to complete publication.
