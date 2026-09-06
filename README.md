@@ -2,27 +2,61 @@
 
 **Intelligence & Risk Advisory**
 
-Brazil Intel is an independent intelligence and risk advisory focused on Brazil and Latin America. The firm supports high-stakes decisions through lawful multi-source research, enhanced due diligence, corporate intelligence, geopolitical risk analysis, security intelligence and strategic OSINT.
+> **Brazil is complex. Your decisions should not be.**
 
-## Positioning
+Brazil Intel is a Brazil-focused intelligence and risk advisory boutique serving international organizations that need decision-grade understanding before investing, operating, entering a market, selecting partners or assuming exposure in Brazil.
 
-Brazil Intel is built around a multidisciplinary network of specialists who live in, work in and understand Brazil from the inside. The network brings together professionals with experience across intelligence, defense, public security, cybersecurity, corporate risk, academia and regional analysis, including former members of the Brazilian Armed Forces and law-enforcement institutions.
-
-This background does **not** imply access to classified, restricted or privileged government information. Brazil Intel operates through lawful collection, open sources, licensed databases, consented human-source research and independent analysis.
+The firm supports high-stakes decisions through lawful multi-source research, enhanced due diligence, corporate intelligence, market-entry intelligence, geopolitical risk analysis, security intelligence and strategic OSINT.
 
 ## Core promise
 
-> Brazil is not a market you should enter blind.
+**Reduce uncertainty before capital, reputation or operations are exposed.**
 
-We help clients identify hidden relationships, reputational exposure, political and regulatory risk, security threats, operational dependencies and other decision-relevant factors before they become costly surprises.
+Brazil Intel turns fragmented information into structured assessments designed to clarify what is verified, what is relevant, what is connected, what remains uncertain and which risks deserve scrutiny before a consequential decision is made.
+
+## Brazil expertise
+
+Brazil Intel is built around a multidisciplinary network of specialists who live in, work in and understand Brazil.
+
+The network includes professionals with backgrounds in defense, public security, intelligence, cybersecurity, academia and corporate risk. Many have spent their careers operating, researching and analyzing Brazil's institutional, economic and security environments.
+
+This background does **not** imply access to classified, restricted or privileged government information. Brazil Intel relies on lawful collection, structured analysis and independently verifiable or appropriately licensed sources.
+
+## Capabilities
+
+- Enhanced Due Diligence
+- Corporate Intelligence
+- Market Entry Intelligence
+- Geopolitical Risk
+- Security Intelligence
+- Strategic OSINT
+
+## Analytical method
+
+1. Intelligence Requirement
+2. Collection Plan
+3. Verification
+4. Analysis
+5. Alternative Analysis
+6. Decision Support
+
+Material products distinguish, when appropriate, between **fact, assessment, hypothesis and confidence level**.
 
 ## Principles
 
 - Lawful collection
 - Source integrity
 - Analytical rigor
-- Explicit confidence levels
-- Red-team review
+- Alternative analysis
+- Explicit uncertainty and confidence
 - Confidentiality
 - Independence
 - Human-led, technology-enabled analysis
+
+## Public payment positioning
+
+Digital asset settlement may be available for approved engagements. Client identification, compliance screening, invoicing and applicable accounting requirements remain part of the engagement process.
+
+## Website
+
+The initial static website is implemented in `index.html` and is designed for direct deployment through GitHub Pages, Cloudflare Pages or another static hosting service.
