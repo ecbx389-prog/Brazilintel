@@ -5,6 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content="Brazil Intel provides decision-grade intelligence, enhanced due diligence and strategic risk analysis for organizations investing, operating or entering Brazil." />
   <title>Brazil Intel — Intelligence & Risk Advisory</title>
+  <meta name="theme-color" content="#0d1115" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Brazil Intel" />
+  <meta property="og:title" content="Brazil Intel — Intelligence & Risk Advisory" />
+  <meta property="og:description" content="Decision-grade intelligence, enhanced due diligence and strategic risk analysis for organizations investing, operating or entering Brazil." />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Brazil Intel — Intelligence & Risk Advisory" />
+  <meta name="twitter:description" content="Decision-grade intelligence, enhanced due diligence and strategic risk analysis for organizations investing, operating or entering Brazil." />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   <style>
     :root{
       --bg:#0d1115;--surface:#12181d;--surface-2:#182027;--text:#f3f5f6;--muted:#9eaab2;
@@ -34,6 +43,7 @@
     footer{padding:44px 0;color:var(--muted);font-size:12px}.foot{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
     @media(max-width:960px){nav{display:none}.trust{grid-template-columns:1fr 1fr}.trust-item:nth-child(2){border-right:0}.trust-item:nth-child(-n+2){border-bottom:1px solid var(--line)}.section-head,.problem-grid,.expertise,.brazil-grid,.cta-grid{grid-template-columns:1fr}.cards{grid-template-columns:1fr 1fr}.method{grid-template-columns:1fr 1fr 1fr}.step:nth-child(3){border-right:0}.step:nth-child(-n+3){border-bottom:1px solid var(--line)}.insights{grid-template-columns:1fr}}
     @media(max-width:620px){.wrap{padding:0 18px}.nav .btn{display:none}.hero{min-height:690px}.hero-content{padding:80px 0}h1{font-size:54px}.lead{font-size:18px}.trust{grid-template-columns:1fr}.trust-item{border-right:0!important;border-bottom:1px solid var(--line)}section{padding:76px 0}.cards,.method{grid-template-columns:1fr}.step{border-right:0!important;border-bottom:1px solid var(--line)}.risk-list,.disciplines{grid-template-columns:1fr}.insight.featured{min-height:300px}}
+    @media(max-width:480px){.wrap{padding:0 24px}.hero{min-height:auto}.hero-content{padding:56px 0}h1{font-size:38px;margin:0 0 20px}.lead{font-size:16px}.proof{margin:0 0 24px}section{padding:52px 0}.section-head{gap:28px;margin-bottom:32px}h2{font-size:30px}.copy{font-size:16px}.statement{padding:26px;min-height:0}.statement h3{font-size:24px;margin:0 0 18px}.card{padding:26px;min-height:0}.num{margin-bottom:28px}.expertise-panel{padding:26px;min-height:0}.expertise-panel h3{font-size:26px}.boundary{padding:22px}.step{padding:22px 16px;min-height:0}.step strong{margin-top:24px}.map{min-height:260px}.brazil-copy{padding:26px}.brazil-copy h3{font-size:24px}.insight{padding:22px;min-height:0}.insight.featured{min-height:0}.insight h3{font-size:22px;margin:16px 0}}
     @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
   </style>
 </head>
@@ -130,11 +140,11 @@
   <section id="request" class="cta">
     <div class="wrap cta-grid">
       <div><div class="eyebrow">Intelligence request</div><h2>What decision are you trying to make?</h2><p class="copy">Describe the decision, transaction, market entry or risk you need to understand. Requirements are reviewed for scope, conflicts and analytical feasibility before an engagement is proposed.</p></div>
-      <form class="form" onsubmit="event.preventDefault();document.getElementById('status').textContent='Prototype only — connect this form to the intake backend before production.';">
+      <form class="form" onsubmit="event.preventDefault();this.reset();document.getElementById('status').textContent='Secure intake is being activated. Please return shortly.';">
         <label for="decision">Decision</label><textarea id="decision" placeholder="Describe the decision you are facing..." required></textarea>
         <label for="type">Type of requirement</label><select id="type"><option>Enhanced Due Diligence</option><option>Corporate Intelligence</option><option>Market Entry</option><option>Geopolitical Risk</option><option>Security Intelligence</option><option>Strategic OSINT</option><option>Other</option></select>
         <label for="email">Professional email</label><input id="email" type="email" placeholder="name@company.com" required />
-        <button class="btn primary" type="submit">Submit Intelligence Requirement</button><div id="status" class="fine"></div><div class="fine">Digital asset settlement may be available for approved engagements.</div>
+        <button class="btn primary" type="submit">Submit Intelligence Requirement</button><div id="status" class="fine" role="status"></div><div class="fine">Digital asset settlement may be available for approved engagements.</div>
       </form>
     </div>
   </section>

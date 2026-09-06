@@ -59,4 +59,22 @@ Digital asset settlement may be available for approved engagements. Client ident
 
 ## Website
 
-The initial static website is implemented in `index.html` and is designed for direct deployment through GitHub Pages, Cloudflare Pages or another static hosting service.
+The static website is implemented in `index.html` and is designed for direct deployment through GitHub Pages, Cloudflare Pages or another static hosting service. No build step is required — it is plain HTML/CSS with a small inline script for the intake form.
+
+Supporting production files:
+
+- `favicon.svg` — brand mark favicon
+- `robots.txt` — allows crawling; a `Sitemap:` line will be added once a public URL exists
+- `_headers` — baseline security headers for Cloudflare Pages / Workers static assets (`nosniff`, frame denial, referrer policy, restrictive permissions policy)
+- `wrangler.jsonc` — Cloudflare Workers (static assets) configuration; needed because this project was connected through Cloudflare's "Import a repository" (Workers Builds) flow, which deploys with `wrangler deploy` rather than the classic Pages build pipeline. It serves the repository root as the static asset directory.
+- `.assetsignore` — keeps non-site files (`README.md`, `wrangler.jsonc`, `.git`, `.github`) out of the deployed static assets
+
+`sitemap.xml`, the `canonical` link and the Open Graph `og:url` tag are intentionally not yet present — they require a real, deployed URL and will be added after the first successful deployment rather than pointing at an invented domain.
+
+## Intake form
+
+The "Submit a Requirement" form has no backend yet. Submitting it clears the fields client-side and shows: "Secure intake is being activated. Please return shortly." No form data is sent to any service or stored anywhere. Do not wire this form to a third-party form service (e.g. Formspree) without explicit authorization.
+
+## Deployment status
+
+A Cloudflare Workers project named `brazilintel` was created via the dashboard's "Import a repository" flow, deploying from the `main` branch with `npx wrangler deploy`. `main` does not yet include this repo's production-readiness changes (they live on this PR's branch) and, before `wrangler.jsonc` was added, `wrangler deploy` had no assets/entry-point configuration to work from. Merge this PR to `main` to get both fixes live at once.
