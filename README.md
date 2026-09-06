@@ -65,7 +65,9 @@ Supporting production files:
 
 - `favicon.svg` — brand mark favicon
 - `robots.txt` — allows crawling; a `Sitemap:` line will be added once a public URL exists
-- `_headers` — baseline security headers for Cloudflare Pages (`nosniff`, frame denial, referrer policy, restrictive permissions policy)
+- `_headers` — baseline security headers for Cloudflare Pages / Workers static assets (`nosniff`, frame denial, referrer policy, restrictive permissions policy)
+- `wrangler.jsonc` — Cloudflare Workers (static assets) configuration; needed because this project was connected through Cloudflare's "Import a repository" (Workers Builds) flow, which deploys with `wrangler deploy` rather than the classic Pages build pipeline. It serves the repository root as the static asset directory.
+- `.assetsignore` — keeps non-site files (`README.md`, `wrangler.jsonc`, `.git`, `.github`) out of the deployed static assets
 
 `sitemap.xml`, the `canonical` link and the Open Graph `og:url` tag are intentionally not yet present — they require a real, deployed URL and will be added after the first successful deployment rather than pointing at an invented domain.
 
@@ -75,4 +77,4 @@ The "Submit a Requirement" form has no backend yet. Submitting it clears the fie
 
 ## Deployment status
 
-Not yet deployed as of this writing. This repository does not have authenticated access to a Cloudflare account or API token in this environment, so no Cloudflare Pages project could be created or connected. See the project's deployment notes (provided separately by the assistant that prepared this repo) for the exact manual steps required in the Cloudflare dashboard to complete publication.
+A Cloudflare Workers project named `brazilintel` was created via the dashboard's "Import a repository" flow, deploying from the `main` branch with `npx wrangler deploy`. `main` does not yet include this repo's production-readiness changes (they live on this PR's branch) and, before `wrangler.jsonc` was added, `wrangler deploy` had no assets/entry-point configuration to work from. Merge this PR to `main` to get both fixes live at once.
