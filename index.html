@@ -8,127 +8,271 @@
   <title>Brazil Intel — Intelligence & Risk Advisory</title>
   <style>
     :root{
-      --bg:#0d1115;--surface:#12181d;--surface-2:#182027;--text:#f3f5f6;--muted:#9eaab2;
-      --line:#28333c;--accent:#86a98f;--accent-soft:#b9c9be;--max:1320px
+      --bg:#0d1115;
+      --surface:#12181d;
+      --surface-2:#182027;
+      --surface-3:#0f1418;
+      --text:#f3f5f6;
+      --muted:#9eaab2;
+      --line:#28333c;
+      --accent:#86a98f;
+      --accent-soft:#b9c9be;
+      --max:1320px;
+      --header-h:76px;
+      --section-pad:88px;
+      --section-gap:24px;
+      --sticky-top:108px;
     }
+
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
-    body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.58}
+    body{
+      margin:0;
+      background:var(--bg);
+      color:var(--text);
+      font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      line-height:1.55;
+      overflow-x:hidden;
+    }
+    img{max-width:100%;display:block}
     a{color:inherit;text-decoration:none}
-    p{margin-top:0}
     .wrap{max-width:var(--max);margin:auto;padding:0 28px}
-    header{position:sticky;top:0;z-index:50;background:rgba(13,17,21,.9);backdrop-filter:blur(14px);border-bottom:1px solid rgba(255,255,255,.06)}
-    .nav{height:72px;display:flex;align-items:center;justify-content:space-between;gap:28px}
+
+    header{
+      position:sticky;
+      top:0;
+      z-index:50;
+      height:var(--header-h);
+      background:rgba(13,17,21,.88);
+      backdrop-filter:blur(14px);
+      border-bottom:1px solid rgba(255,255,255,.06)
+    }
+    .nav{
+      height:var(--header-h);
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:28px
+    }
     .brand{display:flex;align-items:center;gap:12px;font-weight:750;letter-spacing:.04em}
-    .brand small{display:block;color:var(--muted);font-size:10px;line-height:1.3;letter-spacing:.14em;text-transform:uppercase;font-weight:600;margin-top:2px}
-    .mark{width:30px;height:30px;border:1px solid var(--accent);position:relative;flex:0 0 auto}
+    .brand small{display:block;color:var(--muted);font-size:10px;letter-spacing:.14em;text-transform:uppercase;font-weight:600}
+    .mark{width:30px;height:30px;border:1px solid var(--accent);position:relative}
     .mark:before,.mark:after{content:"";position:absolute;background:var(--accent)}
-    .mark:before{width:18px;height:1px;left:5px;top:14px}.mark:after{height:18px;width:1px;top:5px;left:14px}
+    .mark:before{width:18px;height:1px;left:5px;top:14px}
+    .mark:after{height:18px;width:1px;top:5px;left:14px}
     nav{display:flex;gap:26px;font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.09em}
     nav a:hover{color:var(--text)}
-    .btn{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:0 18px;border:1px solid var(--line);font-size:14px;font-weight:700;transition:.2s ease}
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-height:46px;
+      padding:0 18px;
+      border:1px solid var(--line);
+      font-size:14px;
+      font-weight:700;
+      transition:.2s ease;
+      white-space:nowrap;
+    }
     .btn:hover{border-color:var(--accent);transform:translateY(-1px)}
     .btn.primary{background:var(--accent);border-color:var(--accent);color:#08100b}
 
-    .hero{position:relative;min-height:640px;display:flex;align-items:center;overflow:hidden;border-bottom:1px solid var(--line)}
-    .hero:before{content:"";position:absolute;inset:0;background:linear-gradient(rgba(134,169,143,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(134,169,143,.04) 1px,transparent 1px);background-size:64px 64px;mask-image:linear-gradient(to bottom,#000,transparent 92%)}
-    .hero:after{content:"";position:absolute;width:620px;height:620px;right:-215px;top:22px;border:1px solid rgba(134,169,143,.1);transform:rotate(10deg);background:linear-gradient(135deg,rgba(134,169,143,.025),transparent 62%)}
-    .hero-content{position:relative;z-index:2;max-width:1020px;padding:74px 0 80px}
-    .eyebrow{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:11px;line-height:1.4;letter-spacing:.16em;text-transform:uppercase;color:var(--accent-soft);margin-bottom:18px}
-    h1{font-size:clamp(52px,6.8vw,92px);line-height:1.01;letter-spacing:-.052em;margin:0 0 24px;max-width:1030px}
-    .lead{font-size:20px;line-height:1.52;color:#b9c3c9;max-width:790px;margin:0 0 16px}
-    .proof{font-size:14px;line-height:1.55;color:var(--accent-soft);margin:0 0 28px}
+    .hero{
+      position:relative;
+      min-height:520px;
+      display:flex;
+      align-items:center;
+      overflow:hidden;
+      border-bottom:1px solid var(--line);
+    }
+    .hero:before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:
+        linear-gradient(rgba(134,169,143,.04) 1px,transparent 1px),
+        linear-gradient(90deg,rgba(134,169,143,.04) 1px,transparent 1px);
+      background-size:64px 64px;
+      mask-image:linear-gradient(to bottom,#000,transparent 92%);
+    }
+    .hero:after{
+      content:"";
+      position:absolute;
+      width:680px;
+      height:680px;
+      right:-180px;
+      top:10px;
+      border:1px solid rgba(134,169,143,.10);
+      transform:rotate(10deg);
+      background:radial-gradient(circle at 50% 45%,rgba(134,169,143,.08),transparent 40%);
+      pointer-events:none;
+    }
+    .hero-content{position:relative;z-index:2;max-width:940px;padding:46px 0 56px}
+    .eyebrow{
+      font-family:ui-monospace,SFMono-Regular,Menlo,monospace;
+      font-size:11px;
+      letter-spacing:.16em;
+      text-transform:uppercase;
+      color:var(--accent-soft);
+      margin-bottom:18px
+    }
+    h1{
+      font-size:clamp(50px,6.2vw,92px);
+      line-height:.96;
+      letter-spacing:-.055em;
+      margin:0 0 22px;
+      max-width:980px
+    }
+    .lead{font-size:20px;color:#b9c3c9;max-width:760px;margin:0 0 16px;line-height:1.45}
+    .proof{font-size:14px;color:var(--accent-soft);margin:0 0 28px;line-height:1.5}
     .actions{display:flex;gap:12px;flex-wrap:wrap}
 
     .trust{display:grid;grid-template-columns:repeat(4,1fr);border-bottom:1px solid var(--line)}
-    .trust-item{padding:22px 28px;border-right:1px solid var(--line)}
+    .trust-item{padding:24px 28px;border-right:1px solid var(--line)}
     .trust-item:last-child{border-right:0}
-    .trust-item strong{display:block;font-size:12px;line-height:1.4;letter-spacing:.08em;text-transform:uppercase;margin-bottom:5px}
-    .trust-item span{font-size:13px;line-height:1.5;color:var(--muted)}
+    .trust-item strong{display:block;font-size:12px;letter-spacing:.08em;text-transform:uppercase;margin-bottom:6px}
+    .trust-item span{font-size:13px;color:var(--muted);display:block;line-height:1.45}
 
-    section{padding:88px 0;border-bottom:1px solid var(--line)}
-    .section-head{display:grid;grid-template-columns:1fr 1.35fr;gap:64px;margin-bottom:44px;align-items:start}
-    h2{font-size:clamp(38px,4.8vw,64px);line-height:1.06;letter-spacing:-.042em;margin:0}
-    .copy{font-size:18px;line-height:1.58;color:#b5c0c7;max-width:720px;margin-bottom:0}
+    section{padding:var(--section-pad) 0;border-bottom:1px solid var(--line)}
+    .section-head{
+      display:grid;
+      grid-template-columns:minmax(280px,.95fr) minmax(360px,1.35fr);
+      gap:56px;
+      margin-bottom:46px
+    }
+    h2{font-size:clamp(38px,4.8vw,66px);line-height:1.02;letter-spacing:-.045em;margin:0}
+    .copy{font-size:18px;color:#b5c0c7;max-width:760px;line-height:1.58}
     .copy strong{color:var(--text)}
 
-    .problem-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:22px}
-    .statement{border:1px solid var(--line);background:var(--surface);padding:34px;min-height:300px}
-    .statement h3{font-size:30px;line-height:1.13;margin:0 0 22px}
+    .problem-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:var(--section-gap)}
+    .statement,
+    .panel,
+    .stack-card,
+    .boundary,
+    .brazil-copy,
+    .insight,
+    .expertise-panel,
+    .method-card{
+      border:1px solid var(--line);
+      background:linear-gradient(180deg,rgba(255,255,255,.01),transparent),var(--surface);
+    }
+    .statement{padding:34px;min-height:300px}
+    .statement h3{font-size:30px;line-height:1.08;margin:0 0 18px}
+
     .risk-list{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--line);border-left:1px solid var(--line)}
-    .risk-list div{padding:17px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);color:#b8c1c7;font-size:14px;line-height:1.45}
+    .risk-list div{padding:16px 18px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);color:#b8c1c7;font-size:14px;line-height:1.4}
 
     .cards{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line);border-left:1px solid var(--line)}
-    .card{padding:32px;min-height:250px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);background:linear-gradient(180deg,rgba(255,255,255,.012),transparent);transition:.2s ease}
+    .card{padding:30px;min-height:248px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);background:linear-gradient(180deg,rgba(255,255,255,.012),transparent);transition:.2s ease}
     .card:hover{background:var(--surface);transform:translateY(-2px)}
-    .num{font:11px ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--accent);margin-bottom:46px}
-    .card h3{margin:0 0 10px;font-size:22px;line-height:1.18}
+    .num{font:11px ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--accent);margin-bottom:42px}
+    .card h3{margin:0 0 10px;font-size:21px;line-height:1.15}
     .card p{margin:0;color:var(--muted);font-size:14px;line-height:1.55}
 
-    .expertise{display:grid;grid-template-columns:1fr 1fr;gap:24px}
-    .expertise-panel{border:1px solid var(--line);padding:34px;min-height:390px;background:var(--surface)}
-    .expertise-panel h3,.boundary h3{font-size:32px;line-height:1.12;margin:0 0 18px}
-    .expertise-panel p,.boundary p{color:#b6c0c7;line-height:1.58}
-    .disciplines{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--line);border-left:1px solid var(--line);margin-top:26px}
-    .disciplines span{padding:14px 15px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);font-size:13px;line-height:1.35;color:var(--accent-soft)}
-    .boundary{border:1px solid var(--line);padding:30px;display:flex;flex-direction:column;justify-content:space-between}
+    .split-sticky{display:grid;grid-template-columns:1fr 1fr;gap:var(--section-gap);align-items:start}
+    .sticky-col{position:sticky;top:var(--sticky-top);align-self:start}
+    .scroll-col{display:grid;gap:18px}
+
+    .expertise-panel{padding:36px;min-height:420px}
+    .expertise-panel h3{font-size:34px;line-height:1.05;margin:0 0 18px}
+    .expertise-panel p{color:#b6c0c7;margin:0 0 14px}
+    .disciplines{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--line);border-left:1px solid var(--line);margin-top:22px}
+    .disciplines span{padding:14px 15px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);font-size:13px;color:var(--accent-soft)}
+    .stack-card{padding:28px}
+    .stack-card h3{font-size:24px;line-height:1.1;margin:0 0 12px}
+    .stack-card p{margin:0;color:var(--muted)}
+    .boundary{padding:30px;display:flex;flex-direction:column;gap:16px}
     .boundary .label{font:11px ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--accent);text-transform:uppercase;letter-spacing:.1em}
+    .boundary p{color:var(--muted);font-size:14px;margin:0}
 
     .method{display:grid;grid-template-columns:repeat(6,1fr);border:1px solid var(--line)}
-    .step{padding:26px 20px;min-height:154px;border-right:1px solid var(--line)}
+    .step{padding:26px 18px;min-height:148px;border-right:1px solid var(--line);background:linear-gradient(180deg,rgba(255,255,255,.01),transparent)}
     .step:last-child{border-right:0}
     .step .n{font:11px ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--accent)}
-    .step strong{display:block;margin-top:36px;font-size:13px;line-height:1.35;text-transform:uppercase;letter-spacing:.06em}
-    .step p{font-size:12px;line-height:1.5;color:var(--muted);margin:8px 0 0}
+    .step strong{display:block;margin-top:34px;font-size:13px;text-transform:uppercase;letter-spacing:.06em;line-height:1.35}
+    .step p{font-size:12px;color:var(--muted);margin-top:8px;line-height:1.45}
 
-    .brazil-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:24px;align-items:stretch}
-    .map{min-height:460px;border:1px solid var(--line);position:relative;overflow:hidden;background:radial-gradient(circle at 47% 45%,rgba(134,169,143,.10),transparent 26%),linear-gradient(140deg,rgba(255,255,255,.015),transparent 62%)}
-    .map:before{content:"";position:absolute;inset:0;background:linear-gradient(rgba(134,169,143,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(134,169,143,.04) 1px,transparent 1px);background-size:42px 42px}
-    .map svg{position:absolute;inset:6% 7% 5% 5%;width:88%;height:89%;overflow:visible}
-    .brazil-shape{fill:rgba(134,169,143,.055);stroke:rgba(185,201,190,.82);stroke-width:1.35;vector-effect:non-scaling-stroke}
-    .map-line{stroke:rgba(134,169,143,.22);stroke-width:1;vector-effect:non-scaling-stroke;fill:none;stroke-dasharray:4 6}
-    .hotspot{fill:var(--accent);stroke:rgba(13,17,21,.9);stroke-width:2;vector-effect:non-scaling-stroke}
-    .hotspot-ring{fill:none;stroke:rgba(134,169,143,.25);stroke-width:1;vector-effect:non-scaling-stroke}
-    .map-label{fill:#c7d1ca;font:10px ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.02em}
-    .map-kicker{fill:#87979f;font:9px ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.12em}
-    .brazil-copy{border:1px solid var(--line);padding:34px;background:var(--surface)}
-    .brazil-copy h3{font-size:31px;line-height:1.12;margin:0 0 18px}
-    .brazil-copy p{color:#b8c1c7;line-height:1.58}
-    .brazil-copy ul{padding-left:18px;color:var(--muted);line-height:1.62;margin-bottom:0}
+    .signal-board{
+      border:1px solid var(--line);
+      background:linear-gradient(180deg,rgba(255,255,255,.012),transparent),var(--surface-3);
+      min-height:560px;
+      padding:30px;
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+    }
+    .signal-board .board-kicker{font:11px ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--accent);letter-spacing:.12em;text-transform:uppercase}
+    .signal-board h3{font-size:34px;line-height:1.08;margin:14px 0 10px}
+    .signal-board .board-copy{color:#b8c1c7;max-width:520px;margin:0 0 26px}
+    .signals{border-top:1px solid var(--line)}
+    .signal{display:grid;grid-template-columns:1fr auto;gap:18px;align-items:center;padding:16px 0;border-bottom:1px solid var(--line)}
+    .signal strong{display:block;font-size:14px;line-height:1.35}
+    .signal span{display:block;font-size:12px;color:var(--muted);margin-top:4px;line-height:1.4}
+    .signal em{font:10px ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--accent-soft);font-style:normal;letter-spacing:.08em;text-transform:uppercase}
+    .brazil-copy{padding:30px}
+    .brazil-copy h3{font-size:30px;line-height:1.08;margin:0 0 12px}
+    .brazil-copy p{color:#b8c1c7;margin:0}
+    .brazil-copy ul{padding-left:18px;color:var(--muted);margin:0}
+    .brazil-copy li{margin:0 0 10px;line-height:1.45}
 
     .insights{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:18px}
-    .insight{border:1px solid var(--line);padding:28px;min-height:250px;display:flex;flex-direction:column;justify-content:space-between}
-    .insight.featured{min-height:350px;background:var(--surface)}
+    .insight{padding:28px;min-height:250px;display:flex;flex-direction:column;justify-content:space-between}
+    .insight.featured{min-height:350px}
     .tag{font:11px ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--accent);letter-spacing:.08em;text-transform:uppercase}
-    .insight h3{font-size:25px;line-height:1.18;margin:22px 0}
+    .insight h3{font-size:26px;line-height:1.12;margin:20px 0}
     .insight small{color:var(--muted)}
 
     .cta{background:var(--surface)}
-    .cta-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:64px;align-items:start}
-    .form{display:grid;gap:11px}
+    .cta-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:54px;align-items:start}
+    .form{display:grid;gap:12px}
     label{font:11px ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--muted);text-transform:uppercase;letter-spacing:.08em}
-    input,textarea,select{width:100%;background:#0f1418;color:var(--text);border:1px solid var(--line);padding:13px 15px;font:inherit;line-height:1.45;outline:none}
+    input,textarea,select{width:100%;background:#0f1418;color:var(--text);border:1px solid var(--line);padding:14px 15px;font:inherit;outline:none}
     input:focus,textarea:focus,select:focus{border-color:var(--accent)}
-    textarea{min-height:122px;resize:vertical}
-    .fine{font-size:11px;line-height:1.5;color:var(--muted)}
-    footer{padding:38px 0;color:var(--muted);font-size:12px;line-height:1.5}
+    textarea{min-height:120px;resize:vertical}
+    .fine{font-size:11px;color:var(--muted);line-height:1.45}
+
+    footer{padding:40px 0;color:var(--muted);font-size:12px}
     .foot{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
 
+    @media(max-width:1120px){
+      .section-head{gap:36px}
+    }
+
     @media(max-width:960px){
-      nav{display:none}.trust{grid-template-columns:1fr 1fr}.trust-item:nth-child(2){border-right:0}.trust-item:nth-child(-n+2){border-bottom:1px solid var(--line)}
-      .section-head,.problem-grid,.expertise,.brazil-grid,.cta-grid{grid-template-columns:1fr}
-      .cards{grid-template-columns:1fr 1fr}.method{grid-template-columns:1fr 1fr 1fr}.step:nth-child(3){border-right:0}.step:nth-child(-n+3){border-bottom:1px solid var(--line)}
-      .insights{grid-template-columns:1fr}.map{min-height:430px}
+      nav{display:none}
+      .hero{min-height:500px}
+      .hero-content{padding:42px 0 52px}
+      .trust{grid-template-columns:1fr 1fr}
+      .trust-item:nth-child(2){border-right:0}
+      .trust-item:nth-child(-n+2){border-bottom:1px solid var(--line)}
+      .section-head,.problem-grid,.split-sticky,.cta-grid{grid-template-columns:1fr}
+      .cards{grid-template-columns:1fr 1fr}
+      .method{grid-template-columns:1fr 1fr 1fr}
+      .step:nth-child(3){border-right:0}
+      .step:nth-child(-n+3){border-bottom:1px solid var(--line)}
+      .insights{grid-template-columns:1fr}
+      .sticky-col{position:relative;top:auto}
     }
+
     @media(max-width:620px){
-      .wrap{padding:0 18px}.nav{height:68px}.nav .btn{display:none}
-      .hero{min-height:560px}.hero-content{padding:58px 0 64px}.hero:after{width:430px;height:430px;right:-215px;top:30px}
-      h1{font-size:50px;line-height:1.02}.lead{font-size:18px}.eyebrow{margin-bottom:15px}
-      .trust{grid-template-columns:1fr}.trust-item{border-right:0!important;border-bottom:1px solid var(--line);padding:19px 18px}
-      section{padding:68px 0}.section-head{gap:24px;margin-bottom:34px}.cards,.method{grid-template-columns:1fr}.step{border-right:0!important;border-bottom:1px solid var(--line)}
-      .risk-list,.disciplines{grid-template-columns:1fr}.insight.featured{min-height:290px}.map{min-height:360px}.map-label{font-size:8px}.map-kicker{font-size:7px}
+      .wrap{padding:0 18px}
+      .nav .btn{display:none}
+      .hero{min-height:455px}
+      .hero-content{padding:34px 0 46px}
+      h1{font-size:48px}
+      .lead{font-size:18px}
+      .trust{grid-template-columns:1fr}
+      .trust-item{border-right:0!important;border-bottom:1px solid var(--line)}
+      section{padding:72px 0}
+      .cards,.method,.disciplines,.risk-list{grid-template-columns:1fr}
+      .card{min-height:220px}
+      .step{border-right:0!important;border-bottom:1px solid var(--line);min-height:130px}
     }
-    @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+
+    @media(prefers-reduced-motion:reduce){
+      *{scroll-behavior:auto!important;transition:none!important}
+    }
   </style>
 </head>
 <body>
@@ -136,11 +280,15 @@
   <div class="wrap nav">
     <a class="brand" href="#top"><span class="mark" aria-hidden="true"></span><span>Brazil Intel<small>Intelligence & Risk Advisory</small></span></a>
     <nav aria-label="Primary navigation">
-      <a href="#capabilities">Capabilities</a><a href="#expertise">Expertise</a><a href="#method">Method</a><a href="#insights">Insights</a>
+      <a href="#capabilities">Capabilities</a>
+      <a href="#expertise">Expertise</a>
+      <a href="#method">Method</a>
+      <a href="#insights">Insights</a>
     </nav>
     <a class="btn primary" href="#request">Submit a Requirement</a>
   </div>
 </header>
+
 <main id="top">
   <section class="hero">
     <div class="wrap hero-content">
@@ -148,7 +296,10 @@
       <h1>Brazil is complex. Your decisions should not be.</h1>
       <p class="lead">Decision-grade intelligence, enhanced due diligence and strategic risk analysis for organizations investing, operating or entering Brazil.</p>
       <p class="proof">Built on local expertise. Structured analytical methods. Lawful collection. Independent assessment.</p>
-      <div class="actions"><a class="btn primary" href="#request">Submit an Intelligence Requirement</a><a class="btn" href="#capabilities">Explore Capabilities</a></div>
+      <div class="actions">
+        <a class="btn primary" href="#request">Submit an Intelligence Requirement</a>
+        <a class="btn" href="#capabilities">Explore Capabilities</a>
+      </div>
     </div>
   </section>
 
@@ -161,17 +312,41 @@
 
   <section>
     <div class="wrap">
-      <div class="section-head"><div><div class="eyebrow">The problem</div><h2>Reduce uncertainty before exposure.</h2></div><p class="copy">A partner may look clean on paper. A market may appear stable. A supplier may seem reliable. The material risk often sits below the surface. <strong>We identify what deserves scrutiny before it becomes your problem.</strong></p></div>
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">The problem</div>
+          <h2>Reduce uncertainty before exposure.</h2>
+        </div>
+        <p class="copy">A partner may look clean on paper. A market may appear stable. A supplier may seem reliable. The material risk often sits below the surface. <strong>We identify what deserves scrutiny before it becomes your problem.</strong></p>
+      </div>
       <div class="problem-grid">
-        <div class="statement"><h3>What you do not understand before the decision can become the most expensive part of it.</h3><p class="copy">Brazil Intel turns fragmented information into structured assessments designed to clarify what is verified, what is relevant, what is connected and what remains uncertain.</p></div>
-        <div class="risk-list"><div>Ownership complexity</div><div>Relevant affiliations</div><div>Political exposure</div><div>Litigation</div><div>Regulatory pressure</div><div>Reputational liabilities</div><div>Operational dependencies</div><div>High-risk networks</div></div>
+        <div class="statement">
+          <h3>What you do not understand before the decision can become the most expensive part of it.</h3>
+          <p class="copy">Brazil Intel turns fragmented information into structured assessments designed to clarify what is verified, what is relevant, what is connected and what remains uncertain.</p>
+        </div>
+        <div class="risk-list">
+          <div>Ownership complexity</div>
+          <div>Relevant affiliations</div>
+          <div>Political exposure</div>
+          <div>Litigation</div>
+          <div>Regulatory pressure</div>
+          <div>Reputational liabilities</div>
+          <div>Operational dependencies</div>
+          <div>High-risk networks</div>
+        </div>
       </div>
     </div>
   </section>
 
   <section id="capabilities">
     <div class="wrap">
-      <div class="section-head"><div><div class="eyebrow">Capabilities</div><h2>Intelligence built around the decision.</h2></div><p class="copy">We do not begin with a template. We begin with the decision, define the intelligence requirement and build the collection and analysis around what the client actually needs to know.</p></div>
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">Capabilities</div>
+          <h2>Intelligence built around the decision.</h2>
+        </div>
+        <p class="copy">We do not begin with a template. We begin with the decision, define the intelligence requirement and build the collection and analysis around what the client actually needs to know.</p>
+      </div>
       <div class="cards">
         <article class="card"><div class="num">01</div><h3>Enhanced Due Diligence</h3><p>Integrity, ownership, reputation, litigation, sanctions, political exposure and decision-relevant affiliations.</p></article>
         <article class="card"><div class="num">02</div><h3>Corporate Intelligence</h3><p>Ownership, decision-makers, relevant relationships, corporate networks and strategic dependencies.</p></article>
@@ -185,17 +360,59 @@
 
   <section id="expertise">
     <div class="wrap">
-      <div class="section-head"><div><div class="eyebrow">Expertise</div><h2>Brazil, understood from within.</h2></div><p class="copy">Brazil Intel is built around a multidisciplinary network of specialists who live in, work in and understand Brazil. The value is not privileged access. It is context.</p></div>
-      <div class="expertise">
-        <div class="expertise-panel"><h3>Local depth. Professional intelligence.</h3><p>Our network includes professionals with backgrounds in defense, public security, intelligence, cybersecurity, academia and corporate risk. Many have spent their careers operating, researching and analyzing Brazil's institutional, economic and security environments.</p><p>This depth helps identify where formal structures tell only part of the story and where generic analysis can miss decision-relevant context.</p><div class="disciplines"><span>Defense</span><span>Public Security</span><span>Intelligence</span><span>Cybersecurity</span><span>Academia</span><span>Corporate Risk</span></div></div>
-        <div class="boundary"><span class="label">Professional boundary</span><div><h3>Lawful by design.</h3><p>Brazil Intel relies on lawful collection, structured analysis and independently verifiable or appropriately licensed sources.</p><p>Professional backgrounds do not imply access to classified, restricted or privileged government information.</p></div></div>
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">Expertise</div>
+          <h2>Brazil, understood from within.</h2>
+        </div>
+        <p class="copy">Brazil Intel is built around a multidisciplinary network of specialists who live in, work in and understand Brazil. The value is not privileged access. It is context.</p>
+      </div>
+
+      <div class="split-sticky">
+        <div class="sticky-col">
+          <div class="expertise-panel">
+            <h3>Local depth. Professional intelligence.</h3>
+            <p>Our network includes professionals with backgrounds in defense, public security, intelligence, cybersecurity, academia and corporate risk.</p>
+            <p>Many have spent their careers operating, researching and analyzing Brazil's institutional, economic and security environments.</p>
+            <div class="disciplines">
+              <span>Defense</span>
+              <span>Public Security</span>
+              <span>Intelligence</span>
+              <span>Cybersecurity</span>
+              <span>Academia</span>
+              <span>Corporate Risk</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="scroll-col">
+          <div class="stack-card">
+            <h3>Why this matters</h3>
+            <p>This depth helps identify where formal structures tell only part of the story and where generic analysis can miss decision-relevant context.</p>
+          </div>
+          <div class="stack-card">
+            <h3>Operating lens</h3>
+            <p>We focus on practical consequence: who matters, what is changing, what is exposed, where assumptions may be weak and how uncertainty should be weighted before action.</p>
+          </div>
+          <div class="boundary">
+            <span class="label">Professional boundary</span>
+            <p>Brazil Intel relies on lawful collection, structured analysis and independently verifiable or appropriately licensed sources.</p>
+            <p>Professional backgrounds do not imply access to classified, restricted or privileged government information.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
   <section id="method">
     <div class="wrap">
-      <div class="section-head"><div><div class="eyebrow">Analytical method</div><h2>Every engagement starts with the decision.</h2></div><p class="copy">We separate facts from assessments and hypotheses, challenge competing explanations and make uncertainty explicit before findings are delivered.</p></div>
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">Analytical method</div>
+          <h2>Every engagement starts with the decision.</h2>
+        </div>
+        <p class="copy">We separate facts from assessments and hypotheses, challenge competing explanations and make uncertainty explicit before findings are delivered.</p>
+      </div>
       <div class="method">
         <div class="step"><span class="n">01</span><strong>Requirement</strong><p>Define what must be known.</p></div>
         <div class="step"><span class="n">02</span><strong>Collection Plan</strong><p>Identify lawful sources and paths.</p></div>
@@ -209,59 +426,107 @@
 
   <section>
     <div class="wrap">
-      <div class="section-head"><div><div class="eyebrow">Brazil</div><h2>Formal structures tell only part of the story.</h2></div><p class="copy">Business decisions can be shaped by local political networks, regulatory fragmentation, judicial exposure, illicit-market pressures, infrastructure constraints, regional power structures and changing security conditions.</p></div>
-      <div class="brazil-grid">
-        <div class="map" aria-label="Analytical map of Brazil showing four decision-relevant regions">
-          <svg viewBox="0 0 640 560" role="img" aria-labelledby="mapTitle mapDesc">
-            <title id="mapTitle">Brazil analytical coverage map</title>
-            <desc id="mapDesc">Stylized outline of Brazil with analytical hotspots for the North, Central region, Southeast and South Atlantic.</desc>
-            <text x="26" y="28" class="map-kicker">BRAZIL / ANALYTICAL COVERAGE</text>
-            <path class="brazil-shape" d="M250 54 L300 44 L337 64 L378 58 L403 82 L441 90 L460 120 L493 143 L505 176 L536 193 L523 225 L548 252 L526 280 L520 314 L495 331 L482 365 L453 383 L443 420 L420 449 L403 486 L370 507 L345 493 L322 457 L294 437 L276 401 L245 381 L231 346 L203 328 L188 298 L157 285 L145 255 L118 238 L124 206 L104 178 L128 154 L145 122 L179 116 L195 87 L222 82 Z"/>
-            <path class="map-line" d="M168 128 C235 185 338 230 468 278"/>
-            <path class="map-line" d="M222 82 C286 174 330 271 370 507"/>
-            <path class="map-line" d="M145 255 C267 252 380 274 520 314"/>
-
-            <circle cx="232" cy="178" r="18" class="hotspot-ring"/><circle cx="232" cy="178" r="5" class="hotspot"/>
-            <line x1="238" y1="175" x2="300" y2="135" class="map-line"/>
-            <text x="307" y="132" class="map-label">NORTH</text><text x="307" y="148" class="map-label">BORDER & LOGISTICS</text>
-
-            <circle cx="326" cy="270" r="18" class="hotspot-ring"/><circle cx="326" cy="270" r="5" class="hotspot"/>
-            <line x1="332" y1="267" x2="393" y2="237" class="map-line"/>
-            <text x="400" y="234" class="map-label">CENTRAL</text><text x="400" y="250" class="map-label">REGULATORY</text>
-
-            <circle cx="405" cy="356" r="18" class="hotspot-ring"/><circle cx="405" cy="356" r="5" class="hotspot"/>
-            <line x1="411" y1="359" x2="466" y2="388" class="map-line"/>
-            <text x="473" y="389" class="map-label">SOUTHEAST</text><text x="473" y="405" class="map-label">CORPORATE EXPOSURE</text>
-
-            <circle cx="350" cy="450" r="18" class="hotspot-ring"/><circle cx="350" cy="450" r="5" class="hotspot"/>
-            <line x1="344" y1="454" x2="268" y2="495" class="map-line"/>
-            <text x="120" y="503" class="map-label">SOUTH ATLANTIC / STRATEGIC</text>
-          </svg>
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">Brazil</div>
+          <h2>Formal structures tell only part of the story.</h2>
         </div>
-        <div class="brazil-copy"><h3>Make complexity legible.</h3><p>Our role is to translate local complexity into decision-relevant context for organizations that cannot afford generic assumptions.</p><ul><li>Political and regulatory environment</li><li>Corporate and ownership networks</li><li>Security and operational exposure</li><li>Regional and border dynamics</li><li>Infrastructure and supply-chain dependencies</li><li>Reputation and integrity risk</li></ul></div>
+        <p class="copy">Business decisions can be shaped by local political networks, regulatory fragmentation, judicial exposure, illicit-market pressures, infrastructure constraints, regional power structures and changing security conditions.</p>
+      </div>
+
+      <div class="split-sticky">
+        <div class="sticky-col">
+          <div class="signal-board">
+            <div>
+              <div class="board-kicker">Brazil / Decision signals</div>
+              <h3>What we watch before a decision becomes exposure.</h3>
+              <p class="board-copy">A Brazil assessment is not a country profile. It is a structured view of the signals most likely to change the quality of a decision.</p>
+            </div>
+            <div class="signals">
+              <div class="signal"><div><strong>Political & regulatory movement</strong><span>Policy shifts, enforcement posture, licensing and institutional friction.</span></div><em>Monitor</em></div>
+              <div class="signal"><div><strong>Ownership & influence networks</strong><span>Control, affiliations, counterparties and decision-relevant relationships.</span></div><em>Map</em></div>
+              <div class="signal"><div><strong>Integrity & reputation</strong><span>Litigation, adverse information, PEP exposure and reputational liabilities.</span></div><em>Verify</em></div>
+              <div class="signal"><div><strong>Security & operational conditions</strong><span>Threat environment, logistics, continuity and regional exposure.</span></div><em>Assess</em></div>
+              <div class="signal"><div><strong>Infrastructure & supply dependencies</strong><span>Critical nodes, bottlenecks and single points of failure.</span></div><em>Stress-test</em></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="scroll-col">
+          <div class="brazil-copy">
+            <h3>Make complexity legible.</h3>
+            <p>Our role is to translate local complexity into decision-relevant context for organizations that cannot afford generic assumptions.</p>
+          </div>
+          <div class="brazil-copy">
+            <ul>
+              <li>Political and regulatory environment</li>
+              <li>Corporate and ownership networks</li>
+              <li>Security and operational exposure</li>
+              <li>Regional and border dynamics</li>
+              <li>Infrastructure and supply-chain dependencies</li>
+              <li>Reputation and integrity risk</li>
+            </ul>
+          </div>
+          <div class="brazil-copy">
+            <p>Different parts of Brazil present different operating realities. The same national-level conclusion may have radically different implications in the Amazon, in the Southeast, along logistics corridors or in jurisdictions with higher integrity and enforcement risk.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
   <section id="insights">
     <div class="wrap">
-      <div class="section-head"><div><div class="eyebrow">Insights</div><h2>We do not report the news. We assess what it means.</h2></div><p class="copy">Sample analytical directions for the Brazil Intel publishing layer. Final public assessments should be evidence-led, sourced and clearly dated.</p></div>
-      <div class="insights"><article class="insight featured"><div><span class="tag">Assessment / Brazil</span><h3>Brazil's Northern Arc: Strategic Exposure Beyond the Map</h3></div><small>SAMPLE CONTENT DIRECTION</small></article><article class="insight"><div><span class="tag">Risk / Supply Chain</span><h3>Hidden Dependencies in Brazilian Supply Chains</h3></div><small>SAMPLE CONTENT DIRECTION</small></article><article class="insight"><div><span class="tag">Integrity / Brazil</span><h3>Political Exposure: What Foreign Investors Commonly Miss</h3></div><small>SAMPLE CONTENT DIRECTION</small></article></div>
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">Insights</div>
+          <h2>We do not report the news. We assess what it means.</h2>
+        </div>
+        <p class="copy">Sample analytical directions for the Brazil Intel publishing layer. Final public assessments should be evidence-led, sourced and clearly dated.</p>
+      </div>
+      <div class="insights">
+        <article class="insight featured"><div><span class="tag">Assessment / Brazil</span><h3>Brazil's Northern Arc: Strategic Exposure Beyond the Map</h3></div><small>SAMPLE CONTENT DIRECTION</small></article>
+        <article class="insight"><div><span class="tag">Risk / Supply Chain</span><h3>Hidden Dependencies in Brazilian Supply Chains</h3></div><small>SAMPLE CONTENT DIRECTION</small></article>
+        <article class="insight"><div><span class="tag">Integrity / Brazil</span><h3>Political Exposure: What Foreign Investors Commonly Miss</h3></div><small>SAMPLE CONTENT DIRECTION</small></article>
+      </div>
     </div>
   </section>
 
   <section id="request" class="cta">
     <div class="wrap cta-grid">
-      <div><div class="eyebrow">Intelligence request</div><h2>What decision are you trying to make?</h2><p class="copy">Describe the decision, transaction, market entry or risk you need to understand. Requirements are reviewed for scope, conflicts and analytical feasibility before an engagement is proposed.</p></div>
+      <div>
+        <div class="eyebrow">Intelligence request</div>
+        <h2>What decision are you trying to make?</h2>
+        <p class="copy">Describe the decision, transaction, market entry or risk you need to understand. Requirements are reviewed for scope, conflicts and analytical feasibility before an engagement is proposed.</p>
+      </div>
       <form class="form" onsubmit="event.preventDefault();document.getElementById('status').textContent='Secure intake is being activated. Please return shortly.';">
-        <label for="decision">Decision</label><textarea id="decision" placeholder="Describe the decision you are facing..." required></textarea>
-        <label for="type">Type of requirement</label><select id="type"><option>Enhanced Due Diligence</option><option>Corporate Intelligence</option><option>Market Entry</option><option>Geopolitical Risk</option><option>Security Intelligence</option><option>Strategic OSINT</option><option>Other</option></select>
-        <label for="email">Professional email</label><input id="email" type="email" placeholder="name@company.com" required />
-        <button class="btn primary" type="submit">Submit Intelligence Requirement</button><div id="status" class="fine" aria-live="polite"></div><div class="fine">Digital asset settlement may be available for approved engagements.</div>
+        <label for="decision">Decision</label>
+        <textarea id="decision" placeholder="Describe the decision you are facing..." required></textarea>
+        <label for="type">Type of requirement</label>
+        <select id="type">
+          <option>Enhanced Due Diligence</option>
+          <option>Corporate Intelligence</option>
+          <option>Market Entry</option>
+          <option>Geopolitical Risk</option>
+          <option>Security Intelligence</option>
+          <option>Strategic OSINT</option>
+          <option>Other</option>
+        </select>
+        <label for="email">Professional email</label>
+        <input id="email" type="email" placeholder="name@company.com" required />
+        <button class="btn primary" type="submit">Submit Intelligence Requirement</button>
+        <div id="status" class="fine" aria-live="polite"></div>
+        <div class="fine">Digital asset settlement may be available for approved engagements.</div>
       </form>
     </div>
   </section>
 </main>
-<footer><div class="wrap foot"><span>© 2026 Brazil Intel — Intelligence & Risk Advisory</span><span>Lawful collection · Source integrity · Analytical rigor · Confidentiality</span></div></footer>
+
+<footer>
+  <div class="wrap foot">
+    <span>© 2026 Brazil Intel — Intelligence & Risk Advisory</span>
+    <span>Lawful collection · Source integrity · Analytical rigor · Confidentiality</span>
+  </div>
+</footer>
 </body>
 </html>
